@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/artFragment">
+
+    <fragment
+        android:id="@+id/artFragment"
+        android:name="com.example.artbook.presentation.home.ArtFragment"
+        android:label="ArtFragment">
+
+        <action
+            android:id="@+id/action_artFragment_to_writeArtItemFragment"
+            app:destination="@id/writeArtItemFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/writeArtItemFragment"
+        android:name="com.example.artbook.presentation.home.WriteArtItemFragment"
+        android:label="WriteArtItemFragment">
+
+        <action
+            android:id="@+id/action_writeArtItemFragment_to_searchImgFragment"
+            app:destination="@id/searchImgFragment"/>
+        <action
+            android:id="@+id/action_writeArtItemFragment_to_artFragment"
+            app:destination="@id/artFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchImgFragment"
+        android:name="com.example.artbook.presentation.home.SearchImgFragment"
+        android:label="SearchImgFragment">
+
+    </fragment>
+
+</navigation>
