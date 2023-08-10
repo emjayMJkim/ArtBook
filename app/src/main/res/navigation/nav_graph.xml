@@ -2,13 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph.xml"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/artFragment">
 
     <fragment
         android:id="@+id/artFragment"
         android:name="com.example.artbook.presentation.home.ArtFragment"
-        android:label="ArtFragment">
+        android:label="ArtFragment"
+        tools:layout="@layout/fragment_art">
 
         <action
             android:id="@+id/action_artFragment_to_writeArtItemFragment"
@@ -19,7 +20,8 @@
     <fragment
         android:id="@+id/writeArtItemFragment"
         android:name="com.example.artbook.presentation.home.WriteArtItemFragment"
-        android:label="WriteArtItemFragment">
+        android:label="WriteArtItemFragment"
+        tools:layout="@layout/fragment_write_art_item">
 
         <action
             android:id="@+id/action_writeArtItemFragment_to_searchImgFragment"
@@ -33,7 +35,8 @@
     <fragment
         android:id="@+id/searchImgFragment"
         android:name="com.example.artbook.presentation.home.SearchImgFragment"
-        android:label="SearchImgFragment">
+        android:label="SearchImgFragment"
+        tools:layout="@layout/fragment_search_img">
 
     </fragment>
 
