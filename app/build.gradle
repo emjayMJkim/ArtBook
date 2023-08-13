@@ -12,6 +12,9 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     namespace 'com.example.artbook'
     compileSdk 34
@@ -24,6 +27,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "ARTBOOK_BASE_URL", properties["artbook.base.url"]
+        buildConfigField "String", "API_KEY", properties["api.key"]
+
     }
 
     buildTypes {
