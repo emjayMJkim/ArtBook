@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.RequestManager
 import com.example.artbook.R
 import com.example.artbook.base.BaseFragment
 import com.example.artbook.databinding.FragmentWriteArtItemBinding
+import javax.inject.Inject
 
-class WriteArtItemFragment : BaseFragment<FragmentWriteArtItemBinding>(R.layout.fragment_write_art_item) {
-
+class WriteArtItemFragment @Inject constructor(
+    val glide: RequestManager,
+) : BaseFragment<FragmentWriteArtItemBinding>(R.layout.fragment_write_art_item) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,5 +35,4 @@ class WriteArtItemFragment : BaseFragment<FragmentWriteArtItemBinding>(R.layout.
 
         requireActivity().onBackPressedDispatcher.addCallback(callback)
     }
-
 }
