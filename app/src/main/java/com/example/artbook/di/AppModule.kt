@@ -2,8 +2,14 @@ package com.example.artbook.di
 
 import android.content.Context
 import androidx.room.Room
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.example.artbook.R
+import com.example.artbook.data.repository.ArtRepositoryImpl
 import com.example.artbook.data.service.ImageApiService
+import com.example.artbook.data.source.local.ArtDao
 import com.example.artbook.data.source.local.ArtDatabase
+import com.example.artbook.domain.repository.ArtRepository
 import com.example.artbook.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -43,4 +49,16 @@ object AppModule {
             .build()
             .create(ImageApiService::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun injectNormalRepo(dao: ArtDao, api: ImageApiService) = ArtRepositoryImpl(dao, api) as ArtRepository
+
+    @Singleton
+    @Provides
+    fun injectGlide(@ApplicationContext context: Context) = Glide.with(context)
+        .setDefaultRequestOptions(
+            RequestOptions().placeholder(R.drawable.ic_launcher_foreground)
+                .error(R.drawable.ic_launcher_foreground),
+        )
 }
