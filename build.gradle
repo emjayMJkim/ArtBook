@@ -10,6 +10,6 @@ plugins {
 ext {
     coroutineVersion = '1.6.4'
     lifecycleVersion = '2.6.1'
-    koinVersion = '2.2.2'
+    koinVersion = '3.1.6'
     roomVersion = '2.5.2'
 }
