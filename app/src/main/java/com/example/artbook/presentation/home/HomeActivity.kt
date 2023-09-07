@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.example.artbook.R
 import com.example.artbook.base.BaseActivity
 import com.example.artbook.databinding.ActivityHomeBinding
-import com.example.artbook.util.ArtFragmentFactory
+import com.example.artbook.util.FragmentFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -12,7 +12,7 @@ import javax.inject.Inject
 class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
 
     @Inject
-    lateinit var fragmentFactory: ArtFragmentFactory
+    lateinit var fragmentFactory: FragmentFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // supportFragmentManager.fragmentFactory = fragmentFactory
