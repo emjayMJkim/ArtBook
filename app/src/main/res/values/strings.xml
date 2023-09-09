@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ArtBook</string>
+    <string name="item_list_art_name">Art Name</string>
+    <string name="item_list_artist_name">Artist Name</string>
+    <string name="item_list_year">Year</string>
+    <string name="hint_search_image">Search Image</string>
+    <string name="hint_art_name">Art Name</string>
+    <string name="hint_artist_name">Artist Name</string>
+    <string name="hint_year">Year</string>
+    <string name="btn_save">SAVE</string>
 </resources>
