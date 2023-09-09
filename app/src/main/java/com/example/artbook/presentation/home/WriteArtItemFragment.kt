@@ -18,16 +18,17 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class WriteArtItemFragment @Inject constructor(
-    val glide: RequestManager,
+    private val glide: RequestManager,
 ) : Fragment(R.layout.fragment_write_art_item) {
 
-    lateinit var viewModel: ArtViewModel
+    private lateinit var viewModel: ArtViewModel
     private var fragmentBinding: FragmentWriteArtItemBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity()).get(ArtViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity())[ArtViewModel::class.java]
+
 
         val binding = FragmentWriteArtItemBinding.bind(view)
         fragmentBinding = binding

@@ -1,5 +1,6 @@
 package com.example.artbook.presentation.home
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,6 +45,7 @@ class ArtAdapter @Inject constructor(
         return arts.size
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ArtViewHolder, position: Int) {
         val imageView = holder.itemView.findViewById<ImageView>(R.id.img_item_art)
         val nameText = holder.itemView.findViewById<TextView>(R.id.tv_item_art_name)

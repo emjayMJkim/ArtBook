@@ -25,13 +25,13 @@ class SearchImgFragment @Inject constructor(
     private val imageAdapter: ImageAdapter,
 ) : Fragment(R.layout.fragment_search_img) {
 
-    lateinit var viewModel: ArtViewModel
+    private lateinit var viewModel: ArtViewModel
     private var fragmentBinding: FragmentSearchImgBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity()).get(ArtViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity())[ArtViewModel::class.java]
 
         val binding = FragmentSearchImgBinding.bind(view)
         fragmentBinding = binding
@@ -60,7 +60,7 @@ class SearchImgFragment @Inject constructor(
         }
     }
 
-    fun subscribeToObservers() {
+    private fun subscribeToObservers() {
         viewModel.imageList.observe(
             viewLifecycleOwner,
             Observer {
