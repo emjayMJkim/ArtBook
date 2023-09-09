@@ -49,7 +49,7 @@ class ImageAdapter @Inject constructor(
     }
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-        val imageView = holder.itemView.findViewById<ImageView>(R.id.img_item_art)
+        val imageView = holder.itemView.findViewById<ImageView>(R.id.img_item_search)
         val url = images[position]
 
         holder.itemView.apply {
