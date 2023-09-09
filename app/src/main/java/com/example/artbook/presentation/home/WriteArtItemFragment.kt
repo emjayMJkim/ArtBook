@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -12,18 +13,24 @@ import com.example.artbook.R
 import com.example.artbook.base.BaseFragment
 import com.example.artbook.databinding.FragmentWriteArtItemBinding
 import com.example.artbook.util.Status
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class WriteArtItemFragment @Inject constructor(
     val glide: RequestManager,
-) : BaseFragment<FragmentWriteArtItemBinding>(R.layout.fragment_write_art_item) {
+) : Fragment(R.layout.fragment_write_art_item) {
 
     lateinit var viewModel: ArtViewModel
+    private var fragmentBinding: FragmentWriteArtItemBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(requireActivity()).get(ArtViewModel::class.java)
+
+        val binding = FragmentWriteArtItemBinding.bind(view)
+        fragmentBinding = binding
 
         subscribeToObservers()
 
@@ -54,8 +61,8 @@ class WriteArtItemFragment @Inject constructor(
         viewModel.selectedImageUrl.observe(
             viewLifecycleOwner,
             Observer { url ->
-                binding.let { binding ->
-                    glide.load(url).into(binding.imgChooseArt)
+                fragmentBinding?.let {
+                    glide.load(url).into(it.imgChooseArt)
                 }
             },
         )
@@ -77,5 +84,10 @@ class WriteArtItemFragment @Inject constructor(
                 }
             },
         )
+    }
+
+    override fun onDestroyView() {
+        fragmentBinding = null
+        super.onDestroyView()
     }
 }

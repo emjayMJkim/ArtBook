@@ -3,6 +3,7 @@ package com.example.artbook.util
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.bumptech.glide.RequestManager
+import com.example.artbook.base.BaseFragment
 import com.example.artbook.presentation.home.*
 import javax.inject.Inject
 
